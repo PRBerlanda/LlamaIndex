@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenatto cafés</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5ebe0;
+            color: #3e2723;
+        }
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            position: fixed;
+            width: 100%;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            font-family: 'Barlow', serif;
+        }
+        .logo img {
+            height: 50px; 
+            width: auto; 
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #1a261a;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #8c774c;
+        }
+                /* Anúncio */
+                .announcement-bar {
+            background-color: #6f4e37; 
+            color: white; 
+            text-align: center;
+            padding: 10px 0;
+            font-size: 1.1rem;
+            position: fixed;
+            top: 80px; 
+            width: 100%;
+            z-index: 999; 
+            font-family: 'Barlow', serif;
+        }
+        .announcement-bar p {
+            margin: 0;
+        }
+        .announcement-bar strong {
+            font-weight: bold;
+            color: #f5ebe0; 
+        }
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url('images/capa.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+        .hero h1 {
+            font-family: 'Barlow', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        /* Products Section */
+        .products {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .products h2 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #373a3a;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        .product-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        .product-info {
+            padding: 1.5rem;
+        }
+        .product-info h3 {
+            margin-bottom: 0.5rem;
+            color: #8c774c;
+        }
+        .product-taste {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #373a3a;
+        }
+        /* Footer */
+        footer {
+            background-color: #58664d;
+            color: white;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .footer-section h4 {
+            font-family: 'Barlow', serif;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .footer-section p {
+            margin-bottom: 0.5rem;
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        .social-links a {
+            color: white;
+            text-decoration: none;
+        }
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #58664d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #455745 ;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
+<div class="chat-container">
+    <langflow-chat
+        window_title="Assistente Serenatto"
+        flow_id="YOUR-LANGFLOW-FLOW-ID"
+        host_url="http://localhost:7860"
+        width="300"
+        height="440"
+        chat_position="top-right"
+        placeholder="Digite sua pergunta..."
+        online_message="Online"
+   ></langflow-chat>
+</div>
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <img src="images/logo_serenatto.png" alt="Logo Serenatto">
+            </a>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Produtos</a>
+                <a href="#">Sobre</a>
+                <a href="#">Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Anúncio -->
+    <div class="announcement-bar">
+        <p>🎉 Ganhe 20% OFF na primeira compra com o cupom: <strong>QUEROCAFE</strong></p>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Cafés Especiais em Grãos</h1>
+            <p>Descubra os melhores grãos de cafés especiais brasileiros</p>
+            <a href="#produtos" class="btn">Explorar cafés</a>
+        </div>
+    </section>
+
+    <section id="produtos" class="products">
+        <h2>Nossos grãos selecionados</h2>
+        <div class="product-grid">
+            <!-- Primeira Linha -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('images/bourbon_vermelho.jpg')"></div>
+                <div class="product-info">
+                    <h3>Bourbon vermelho</h3>
+                    <div class="product-taste">Perfil sensorial: Chocolate</div>
+                    <div class="product-taste">Processo: Natural</div>
+                    <div class="product-price">R$ 41,00 / 250g</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('images/bourbon_amarelo.jpg')"></div>
+                <div class="product-info">
+                    <h3>Bourbon amarelo</h3>
+                    <div class="product-taste">Perfil sensorial: Maracujá, ameixa e nêspera </div>
+                    <div class="product-taste">Processo: Cereja descascado </div>
+                    <div class="product-price">R$ 43,00 / 250g</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('images/blend.jpg')"></div>
+                <div class="product-info">
+                    <h3>Blend especial</h3>
+                    <div class="product-taste">Perfil sensorial: Caramelo e chocolate</div>
+                    <div class="product-taste">Processo: Cereja Descascado e natural </div>
+                    <div class="product-price">R$ 37,50 / 250g</div>
+                </div>
+            </div>
+
+            <!-- Segunda Linha -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('images/catuai_amarelo.jpg')"></div>
+                <div class="product-info">
+                    <h3>Catuaí amarelo</h3>
+                    <div class="product-taste">Perfil sensorial: Acerola e pêssego </div>
+                    <div class="product-taste">Processo: Fermentado</div>
+                    <div class="product-price">R$ 55,00/ 250g</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('images/geisha.jpg')"></div>
+                <div class="product-info">
+                    <h3>Geisha</h3>
+                    <div class="product-taste">Perfil sensorial: Jasmim e mamão papaya </div>
+                    <div class="product-taste">Processo: Fermentado</div>
+                    <div class="product-price">R$ 105,00 / 250g</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('images/yirgacheffe.jpg')"></div>
+                <div class="product-info">
+                    <h3>Yirgacheffe</h3>
+                    <div class="product-taste">Perfil sensorial: Mel de laranjeira, chá de capim-limão e maçã fuji</div>
+                    <div class="product-taste">Processo: Fermentado</div>
+                    <div class="product-price">R$ 110,00 / 250g</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Sobre nós</h4>
+                <p>Especialistas em cafés especiais desde 2010, trazendo os melhores grãos de microlotes para verdadeiros apreciadores.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p>Email: contato@serenatto.com.br</p>
+                <p>Telefone: (11) 99999-9999</p>
+            </div>
+            <div class="footer-section">
+                <h4>Siga-nos</h4>
+                <div class="social-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

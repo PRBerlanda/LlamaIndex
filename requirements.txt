@@ -1,0 +1,12 @@
+# Python 3.12 or 3.13. The embedding model runs on PyTorch (CPU is enough).
+llama-index-core==0.14.25
+llama-index-llms-groq==0.6.0
+llama-index-embeddings-huggingface==0.8.0
+llama-index-vector-stores-chroma==0.6.0
+llama-index-readers-file==0.7.0
+chromadb==1.5.9
+pypdf==6.21.4
+gradio==6.17.3
+
+# tests
+pytest>=8
