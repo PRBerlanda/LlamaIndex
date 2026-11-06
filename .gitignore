@@ -1,0 +1,16 @@
+# Python environments and caches (recreate with: pip install -r requirements.txt)
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Secrets
+.env
+
+# Generated at run time
+chroma_db/
+.gradio/
+flagged/
+relatorio_perguntas_respostas_*.pdf
